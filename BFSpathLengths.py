@@ -1,3 +1,15 @@
+"""Calculates shortest path lengths from a root node in a graph using Breadth-First Search (BFS).
+
+Args:
+    graph (dict): A dictionary representing the graph, where keys are nodes and 
+                    values are lists of their adjacent nodes.
+    root: The starting node for the BFS traversal.
+
+Returns:
+    dict: A dictionary where keys are nodes in the graph and values are their
+            shortest distances from the root node.
+"""
+
 from collections import deque
 
 
@@ -25,14 +37,15 @@ def bfsPathLengths(graph,root):
     while queue:
         curr = queue.popleft()
 
-        for node in graph[curr]:
-            if node not in visited:
-                visited.append(node)
-                queue.append(node)
-                path_lengths[node] = path_lengths[curr] + 1
+        for neighbor in graph[curr]:
+            if neighbor not in visited:
+                visited.append(neighbor)
+                queue.append(neighbor)
+                path_lengths[neighbor] = path_lengths[curr] + 1
 
     return path_lengths
 
+print(bfsPathLengths(graph,"A"))
 print(bfsPathLengths(graphTwo,"A"))
             
 
