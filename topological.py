@@ -18,7 +18,7 @@ def topological(graph):
     queue = deque([node for node in indegrees if indegrees[node] == 0])
 
     order = []
-
+    
     while queue:
         node = queue.popleft()
         order.append(node)
