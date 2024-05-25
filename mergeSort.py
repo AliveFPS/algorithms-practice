@@ -13,11 +13,10 @@ def mergeSort(array):
     return merge(left, right)
 
 def merge(array1, array2):
-    length = min(len(array1), len(array2))
     output = []
     i, j = 0, 0
 
-    while i < length and j < length:
+    while i < len(array1) and j < len(array2):
         if array1[i] < array2[j]:
             output.append(array1[i])
             i += 1
